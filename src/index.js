@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Sandy from './Hello.js';
+import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 
-ReactDOM.render(<Sandy greeting = {'Hello' + " "+ 'React Master!'}/>, document.getElementById('root'));
+ReactDOM.render(<App/>,document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
