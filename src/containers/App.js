@@ -10,9 +10,12 @@ import './App.css';
 import { setSearchField } from '../actions.js';
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
-		searchField: state.searchField
+		searchField: state.searchRobots.searchField,
+		robots: state.requestRobots.robots,
+		isPending: state.requestRobots.isPending,
+		error: state.requestRobots.error
 	}
 	
 }
@@ -20,6 +23,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
   	onSearchange: (event) => dispatch(setSearchField(event.target.value))
+  	onRequestRobots: () =>
   } 
 }
 
@@ -39,7 +43,9 @@ class App extends Component {
 
 	render() {
 		const { robots } = this.state;
+		
 		const { searchField, onSearchange } = this.props;
+
 		const filteredRobots = robots.filter(robot => {
 		return robot.name.toLowerCase().includes(searchField.toLowerCase());
 		})
