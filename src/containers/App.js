@@ -1,13 +1,12 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-
 import CardList from '../components/CardList'
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css';
 
-import { setSearchField } from '../actions.js';
+import { setSearchField, requestRobots} from '../actions.js';
 
 
 const mapStateToProps = (state) => {
@@ -22,8 +21,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  	onSearchange: (event) => dispatch(setSearchField(event.target.value))
-  	onRequestRobots: () =>
+  	onSearchange: (event) => dispatch(setSearchField(event.target.value)),
+  	onRequestRobots: () => dispatch(requestRobots())
   } 
 }
 
